@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #255,255,255; /* Cor de fundo correspondente à logo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(240, 255, 240, 0.8); /* Fundo branco com opacidade para destacar o conteúdo */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center; /* Centraliza o conteúdo */
+           
+            
+        }
+        img.logo {
+            width: 200px; /* Aumente a largura da imagem conforme necessário */
+            margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+             height:180x;
+             margin:10px
+            
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="file"], select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            display: none;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function mostrarCamposUsuario(tipoUsuario) {
+            var crmGroup = document.getElementById('crm-group');
+            var assinaturaGroup = document.getElementById('assinatura-group');
+
+            if (tipoUsuario === 'prescritor') {
+                crmGroup.style.display = 'block';
+                assinaturaGroup.style.display = 'block';
+            } else {
+                crmGroup.style.display = 'none';
+                assinaturaGroup.style.display = 'none';
+            }
+        }
+
+        function validarSenhas() {
+            var senha = document.getElementById('senha').value;
+            var confirmarSenha = document.getElementById('confirmar_senha').value;
+            var errorMessage = document.getElementById('error-message');
+
+            if (senha !== confirmarSenha) {
+                errorMessage.style.display = 'block';
+                return false;
+            } else {
+                errorMessage.style.display = 'none';
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="imagens/logo.png" alt="Logo" class="logo"> <!-- Logo acima do título -->
+        <h2>Cadastro de Usuário</h2>
+        <form action="processar_cadastro.php" method="POST" enctype="multipart/form-data" onsubmit="return validarSenhas()">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <label for="confirmar_senha">Confirmar Senha:</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+            <p class="error-message" id="error-message">As senhas não coincidem.</p>
+
+            <label for="tipo_usuario">Tipo de Usuário:</label>
+            <select id="tipo_usuario" name="tipo_usuario" onchange="mostrarCamposUsuario(this.value)" required>
+                <option value="funcionario">Funcionário</option>
+                <option value="prescritor">Prescritor</option>
+                <option value="administrador">Administrador</option>
+            </select>
+
+            <div id="crm-group" style="display: none;">
+                <label for="crm">CRM / CRO:</label>
+                <input type="text" id="crm" name="crm">
+            </div>
+
+            <div id="assinatura-group" style="display: none;">
+                <label for="assinatura">Assinatura (imagem):</label>
+                <input type="file" id="assinatura" name="assinatura" accept="image/png, image/jpeg">
+            </div>
+
+            <input type="submit" value="Cadastrar">
+         <div class="footer">
+            <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
+            <p>&copy; NANOFÓRMULA 2024</p>
+    </div>
+</body>
+</html>

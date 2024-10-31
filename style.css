@@ -1,0 +1,14 @@
+button#adicionar-medicamento {
+    width: 200px; /* Ajuste o valor para o tamanho desejado */
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button#adicionar-medicamento:hover {
+    background-color: #45a049;
+}

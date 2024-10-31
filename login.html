@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login de Usuário</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #255,255,255; /* Cor de fundo correspondente à logo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(240, 255, 240, 0.8); /* Fundo branco com opacidade para destacar o conteúdo */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center; /* Centraliza o conteúdo */
+        }
+
+        img.logo {
+            width: 150px; /* Ajuste a largura da imagem conforme necessário */
+            margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="email"], input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="imagens/logo.png" alt="Logo" class="logo"> <!-- Logo acima do título -->
+        <h2>Login de Usuário</h2>
+        <form action="processar_login.php" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <input type="submit" value="Entrar">
+        </form>
+        <div class="footer">
+            <p>Você ainda não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+            <P> © NANOFÓRMULA 2024</P>
+        </div>
+    </div>
+</body>
+</html>
